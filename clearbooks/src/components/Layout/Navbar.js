@@ -49,13 +49,33 @@ const Navbar = () => {
                 </li>
               </ul>
               
-              <div className="d-flex">
-                <span className="navbar-text me-3">
-                  Welcome, {user.name} {user.surname}
-                </span>
-                <button className="btn btn-outline-light btn-sm" onClick={handleLogout}>
-                  Logout
-                </button>
+              <div className="d-flex align-items-center">
+                <div className="dropdown me-2">
+                  <button 
+                    className="btn btn-outline-light btn-sm dropdown-toggle" 
+                    type="button" 
+                    id="userDropdown" 
+                    data-bs-toggle="dropdown" 
+                    aria-expanded="false"
+                  >
+                    {user.name} {user.surname}
+                  </button>
+                  <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                    <li>
+                      <Link className="dropdown-item" to="/profile">
+                        <i className="bi bi-person-circle me-2"></i>
+                        My Profile
+                      </Link>
+                    </li>
+                    <li><hr className="dropdown-divider" /></li>
+                    <li>
+                      <button className="dropdown-item" onClick={handleLogout}>
+                        <i className="bi bi-box-arrow-right me-2"></i>
+                        Logout
+                      </button>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </>

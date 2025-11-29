@@ -18,6 +18,7 @@ import ExpenseEdit from './components/Expenses/ExpenseEdit';
 import TimerPage from './components/Timer/TimerPage';
 import Navbar from './components/Layout/Navbar';
 import PrivateRoute from './components/Common/PrivateRoute';
+import ProfilePage from './components/User/ProfilePage';
 import './App.css';
 
 function App() {
@@ -29,6 +30,12 @@ function App() {
           <Routes>
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+
+            <Route path="/profile" element={
+              <PrivateRoute>
+                <ProfilePage />
+              </PrivateRoute>
+            } />
             
             <Route path="/customers" element={
               <PrivateRoute>
