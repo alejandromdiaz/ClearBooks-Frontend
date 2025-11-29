@@ -52,7 +52,7 @@ const Navbar = () => {
               <div className="d-flex align-items-center">
                 <div className="dropdown me-2">
                   <button 
-                    className="btn btn-outline-light btn-sm dropdown-toggle" 
+                    className="btn btn-outline-secondary btn-sm dropdown-toggle" 
                     type="button" 
                     id="userDropdown" 
                     data-bs-toggle="dropdown" 
