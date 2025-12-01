@@ -58,17 +58,17 @@ const InvoiceDetail = () => {
     <div className="container mt-4">
       <div className="d-flex justify-content-between mb-3">
         <button className="btn btn-secondary" onClick={() => navigate('/invoices')}>
-          Back to Invoices
+          Volver a las facturas
         </button>
         <div>
           <button 
             className={`btn ${invoice.isPaid ? 'btn-warning' : 'btn-success'} me-2`}
             onClick={handleTogglePaid}
           >
-            {invoice.isPaid ? 'Mark as Unpaid' : 'Mark as Paid'}
+            {invoice.isPaid ? 'Marcar como no pagada' : 'Marcar como pendiente'}
           </button>
           <button className="btn btn-success" onClick={handleDownloadPdf}>
-            Download PDF
+            Exportar como PDF
           </button>
         </div>
       </div>
@@ -78,25 +78,25 @@ const InvoiceDetail = () => {
           <div className="row">
             <div className="col-md-6">
               <h1>INVOICE</h1>
-              <p className="mb-1"><strong>Invoice Number:</strong> {invoice.invoiceNumber}</p>
-              <p className="mb-1"><strong>Date:</strong> {formatDate(invoice.invoiceDate)}</p>
+              <p className="mb-1"><strong>Fecha:</strong> {formatDate(invoice.invoiceDate)}</p>
+              <p className="mb-1"><strong>Factura número:</strong> {invoice.invoiceNumber}</p>
               {invoice.dueDate && (
-                <p className="mb-1"><strong>Due Date:</strong> {formatDate(invoice.dueDate)}</p>
+                <p className="mb-1"><strong>Fecha de vencimiento:</strong> {formatDate(invoice.dueDate)}</p>
               )}
               <p className="mb-1">
-                <strong>Status:</strong>{' '}
+                <strong>Estado:</strong>{' '}
                 {invoice.isPaid ? (
-                  <span className="badge bg-success">Paid</span>
+                  <span className="badge bg-success">Pagada</span>
                 ) : (
-                  <span className="badge bg-warning text-dark">Unpaid</span>
+                  <span className="badge bg-warning text-dark">Pendiente</span>
                 )}
               </p>
               {invoice.isPaid && invoice.paidDate && (
-                <p className="mb-1"><strong>Paid on:</strong> {formatDate(invoice.paidDate)}</p>
+                <p className="mb-1"><strong>Pagada el:</strong> {formatDate(invoice.paidDate)}</p>
               )}
             </div>
             <div className="col-md-6 text-end">
-              <h4>Bill To:</h4>
+              <h4>Facturar a:</h4>
               <p className="mb-1"><strong>{invoice.customerName}</strong></p>
             </div>
           </div>
@@ -106,10 +106,10 @@ const InvoiceDetail = () => {
           <table className="table table-bordered">
             <thead>
               <tr>
-                <th>Description</th>
-                <th className="text-center">Quantity</th>
-                <th className="text-end">Unit Price</th>
-                <th className="text-end">Amount</th>
+                <th>Descripción</th>
+                <th className="text-center">Cantidad</th>
+                <th className="text-end">Precio</th>
+                <th className="text-end">Total</th>
               </tr>
             </thead>
             <tbody>
@@ -127,7 +127,7 @@ const InvoiceDetail = () => {
 
         <div className="invoice-totals">
           <p><strong>Subtotal:</strong> {formatCurrency(invoice.subtotal)}</p>
-          <p><strong>VAT ({invoice.taxRate}%):</strong> {formatCurrency(invoice.taxAmount)}</p>
+          <p><strong>IVA ({invoice.taxRate}%):</strong> {formatCurrency(invoice.taxAmount)}</p>
           <div className="total">
             <strong>TOTAL: {formatCurrency(invoice.total)}</strong>
           </div>
@@ -135,7 +135,7 @@ const InvoiceDetail = () => {
 
         {invoice.notes && (
           <div className="mt-4">
-            <h5>Notes:</h5>
+            <h5>Notas:</h5>
             <p>{invoice.notes}</p>
           </div>
         )}

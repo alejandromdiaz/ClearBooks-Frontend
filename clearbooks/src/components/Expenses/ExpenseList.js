@@ -56,29 +56,29 @@ const ExpenseList = () => {
     <div className="container mt-4">
       <div className="d-flex justify-content-between align-items-center mb-4">
         <div>
-          <h2>Expenses</h2>
+          <h2>Gastos</h2>
           <p className="text-muted mb-0">
-            Total Expenses: <strong>{formatCurrency(totalExpenses)}</strong>
+            Total de gastos: <strong>{formatCurrency(totalExpenses)}</strong>
           </p>
         </div>
         <Link to="/expenses/new" className="btn btn-primary">
-          Add New Expense
+          Añadir nuevo gasto
         </Link>
       </div>
 
       {expenses.length === 0 ? (
-        <div className="alert alert-info">No expenses found. Add your first expense!</div>
+        <div className="alert alert-info">No se han encontrado registros. Áñade tu primer gasto.</div>
       ) : (
         <div className="card">
           <div className="card-body">
             <table className="table table-hover">
               <thead>
                 <tr>
-                  <th>Date</th>
-                  <th>Name</th>
-                  <th>Amount</th>
-                  <th>Receipt</th>
-                  <th>Actions</th>
+                  <th>Fecha</th>
+                  <th>Nombre</th>
+                  <th>Total</th>
+                  <th>Ticket o factura</th>
+                  <th>Acciones</th>
                 </tr>
               </thead>
               <tbody>
@@ -89,7 +89,7 @@ const ExpenseList = () => {
                     <td>{formatCurrency(expense.amount)}</td>
                     <td>
                       {expense.receiptPhoto ? (
-                        <span className="badge bg-success">Yes</span>
+                        <span className="badge bg-success">Sí</span>
                       ) : (
                         <span className="badge bg-secondary">No</span>
                       )}
@@ -99,13 +99,13 @@ const ExpenseList = () => {
                         to={`/expenses/edit/${expense.id}`}
                         className="btn btn-sm btn-warning btn-action me-2"
                       >
-                        Edit
+                        Editar
                       </Link>
                       <button
                         onClick={() => handleDelete(expense.id)}
                         className="btn btn-sm btn-danger"
                       >
-                        Delete
+                        Eliminar
                       </button>
                     </td>
                   </tr>

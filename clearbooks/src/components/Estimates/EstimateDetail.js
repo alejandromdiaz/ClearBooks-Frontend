@@ -61,14 +61,14 @@ const EstimateDetail = () => {
     <div className="container mt-4">
       <div className="d-flex justify-content-between mb-3">
         <button className="btn btn-secondary" onClick={() => navigate('/estimates')}>
-          Back to Estimates
+          Volver a los presupuestos
         </button>
         <div>
           <button className="btn btn-primary me-2" onClick={handleConvertToInvoice}>
-            Convert to Invoice
+            Convertir a factura
           </button>
           <button className="btn btn-success" onClick={handleDownloadPdf}>
-            Download PDF
+            Exportar como PDF
           </button>
         </div>
       </div>
@@ -77,11 +77,11 @@ const EstimateDetail = () => {
         <div className="estimate-header">
           <div className="row">
             <div className="col-md-6">
-              <h1>ESTIMATE</h1>
-              <p className="mb-1"><strong>Estimate Number:</strong> {estimate.estimateNumber}</p>
-              <p className="mb-1"><strong>Date:</strong> {formatDate(estimate.estimateDate)}</p>
+              <h1>PRESUPUESTO</h1>
+              <p className="mb-1"><strong>Presupuesto número:</strong> {estimate.estimateNumber}</p>
+              <p className="mb-1"><strong>Fecha:</strong> {formatDate(estimate.estimateDate)}</p>
               {estimate.validUntil && (
-                <p className="mb-1"><strong>Valid Until:</strong> {formatDate(estimate.validUntil)}</p>
+                <p className="mb-1"><strong>Válido hasta:</strong> {formatDate(estimate.validUntil)}</p>
               )}
             </div>
             <div className="col-md-6 text-end">
@@ -95,10 +95,10 @@ const EstimateDetail = () => {
           <table className="table table-bordered">
             <thead>
               <tr>
-                <th>Description</th>
-                <th className="text-center">Quantity</th>
-                <th className="text-end">Unit Price</th>
-                <th className="text-end">Amount</th>
+                <th>Descripción</th>
+                <th className="text-center">Cantidad</th>
+                <th className="text-end">Precio</th>
+                <th className="text-end">Total</th>
               </tr>
             </thead>
             <tbody>
@@ -116,7 +116,7 @@ const EstimateDetail = () => {
 
         <div className="estimate-totals">
           <p><strong>Subtotal:</strong> {formatCurrency(estimate.subtotal)}</p>
-          <p><strong>VAT ({estimate.taxRate}%):</strong> {formatCurrency(estimate.taxAmount)}</p>
+          <p><strong>IVA ({estimate.taxRate}%):</strong> {formatCurrency(estimate.taxAmount)}</p>
           <div className="total">
             <strong>TOTAL: {formatCurrency(estimate.total)}</strong>
           </div>
@@ -124,7 +124,7 @@ const EstimateDetail = () => {
 
         {estimate.notes && (
           <div className="mt-4">
-            <h5>Notes:</h5>
+            <h5>Notas:</h5>
             <p>{estimate.notes}</p>
           </div>
         )}

@@ -43,26 +43,26 @@ const EstimateList = () => {
   return (
     <div className="container mt-4">
       <div className="d-flex justify-content-between align-items-center mb-4">
-        <h2>Estimates</h2>
+        <h2>Presupuestos</h2>
         <Link to="/estimates/new" className="btn btn-primary">
-          Create New Estimate
+          Nuevo presupuesto
         </Link>
       </div>
 
       {estimates.length === 0 ? (
-        <div className="alert alert-info">No estimates found. Create your first estimate!</div>
+        <div className="alert alert-info">No se han encontrado registros. Crea tu primer presupuesto.</div>
       ) : (
         <div className="card">
           <div className="card-body">
             <table className="table table-hover">
               <thead>
                 <tr>
-                  <th>Estimate #</th>
-                  <th>Customer</th>
-                  <th>Date</th>
-                  <th>Valid Until</th>
+                  <th>Presupuesto #</th>
+                  <th>Cliente</th>
+                  <th>Fecha</th>
+                  <th>Vencimiento</th>
                   <th>Total</th>
-                  <th>Actions</th>
+                  <th>Acciones</th>
                 </tr>
               </thead>
               <tbody>
@@ -78,7 +78,7 @@ const EstimateList = () => {
                         onClick={() => handleDelete(estimate.id)}
                         className="btn btn-sm btn-danger"
                       >
-                        Delete
+                        Eliminar
                       </button>
                     </td>
                   </tr>

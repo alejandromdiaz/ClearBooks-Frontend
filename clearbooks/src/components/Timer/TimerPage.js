@@ -117,28 +117,28 @@ const TimerPage = () => {
     return date.toLocaleString('es-ES');
   };
 
-  if (loading) return <div className="text-center mt-5">Loading...</div>;
+  if (loading) return <div className="text-center mt-5">Cargando...</div>;
 
   return (
     <div className="container mt-4">
-      <h2 className="mb-4">Timer - Working Hours</h2>
+      <h2 className="mb-4">Temporizador - Horas de trabajo</h2>
 
       <div className="row mb-4">
         <div className="col-md-8">
           <div className="card">
             <div className="card-body">
               <h5 className="card-title">
-                {runningTimer ? 'Timer Running' : 'Start New Timer'}
+                {runningTimer ? 'Temporizador en marcha' : 'Iniciar nuevo temporizador'}
               </h5>
               
               <div className="mb-3">
-                <label className="form-label">Description</label>
+                <label className="form-label">Descripción</label>
                 <input
                   type="text"
                   className="form-control"
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
-                  placeholder="What are you working on?"
+                  placeholder="¿En qué estás trabajando?"
                   disabled={runningTimer !== null}
                 />
               </div>
@@ -158,7 +158,7 @@ const TimerPage = () => {
                     onClick={handleStop}
                   >
                     <i className="bi bi-stop-circle me-2"></i>
-                    Stop Timer
+                    Detener temporizador
                   </button>
                 ) : (
                   <button 
@@ -166,7 +166,7 @@ const TimerPage = () => {
                     onClick={handleStart}
                   >
                     <i className="bi bi-play-circle me-2"></i>
-                    Start Timer
+                    Iniciar temporizador
                   </button>
                 )}
               </div>
@@ -177,11 +177,11 @@ const TimerPage = () => {
         <div className="col-md-4">
           <div className="card bg-light">
             <div className="card-body text-center">
-              <h5 className="card-title">Total Time Tracked</h5>
+              <h5 className="card-title">Tiempo total registrado</h5>
               <h2 className="display-4 text-primary">
                 {totalHours.toFixed(2)}
               </h2>
-              <p className="text-muted">hours</p>
+              <p className="text-muted">horas</p>
             </div>
           </div>
         </div>
@@ -189,19 +189,19 @@ const TimerPage = () => {
 
       <div className="card">
         <div className="card-body">
-          <h5 className="card-title mb-3">Time Entries</h5>
+          <h5 className="card-title mb-3">Entradas de tiempo</h5>
           
           {timeEntries.length === 0 ? (
-            <div className="alert alert-info">No time entries yet. Start tracking your time!</div>
+            <div className="alert alert-info">No se han encontrado registros. Inicia un nuevo temporizador.</div>
           ) : (
             <table className="table table-hover">
               <thead>
                 <tr>
-                  <th>Description</th>
-                  <th>Start Time</th>
-                  <th>End Time</th>
-                  <th>Duration</th>
-                  <th>Actions</th>
+                  <th>Descripción</th>
+                  <th>Inicio</th>
+                  <th>Final</th>
+                  <th>Duración</th>
+                  <th>Acciones</th>
                 </tr>
               </thead>
               <tbody>
@@ -211,7 +211,7 @@ const TimerPage = () => {
                     <td>{formatDateTime(entry.startTime)}</td>
                     <td>
                       {entry.isRunning ? (
-                        <span className="badge bg-success">Running</span>
+                        <span className="badge bg-success">En marcha</span>
                       ) : (
                         formatDateTime(entry.endTime)
                       )}
@@ -225,7 +225,7 @@ const TimerPage = () => {
                           onClick={() => handleDelete(entry.id)}
                           className="btn btn-sm btn-danger"
                         >
-                          Delete
+                          Eliminar
                         </button>
                       )}
                     </td>

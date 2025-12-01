@@ -44,17 +44,17 @@ const ExpenseDetail = () => {
     <div className="container mt-4">
       <div className="d-flex justify-content-between mb-3">
         <button className="btn btn-secondary" onClick={() => navigate('/expenses')}>
-          Back to Expenses
+          Volver a los gastos
         </button>
         <div>
           <button 
             className="btn btn-warning me-2" 
             onClick={() => navigate(`/expenses/edit/${id}`)}
           >
-            Edit
+            Editar
           </button>
           <button className="btn btn-danger" onClick={handleDelete}>
-            Delete
+            Eliminar
           </button>
         </div>
       </div>
@@ -66,12 +66,12 @@ const ExpenseDetail = () => {
           <div className="row mb-4">
             <div className="col-md-6">
               <div className="mb-3">
-                <label className="text-muted">Date</label>
+                <label className="text-muted">Fecha</label>
                 <p className="h5">{formatDate(expense.expenseDate)}</p>
               </div>
               
               <div className="mb-3">
-                <label className="text-muted">Amount</label>
+                <label className="text-muted">Total</label>
                 <p className="h4 text-danger">{formatCurrency(expense.amount)}</p>
               </div>
             </div>
@@ -79,7 +79,7 @@ const ExpenseDetail = () => {
             <div className="col-md-6">
               {expense.receiptPhoto && (
                 <div>
-                  <label className="text-muted d-block mb-2">Receipt Photo</label>
+                  <label className="text-muted d-block mb-2">Imagen del ticket o factura </label>
                   <img 
                     src={expense.receiptPhoto} 
                     alt="Receipt" 
@@ -87,7 +87,7 @@ const ExpenseDetail = () => {
                     style={{ maxWidth: '100%', maxHeight: '400px', cursor: 'pointer' }}
                     onClick={() => window.open(expense.receiptPhoto, '_blank')}
                   />
-                  <p className="text-muted small mt-2">Click to view full size</p>
+                  <p className="text-muted small mt-2">Pulse para ver en tamaño completo</p>
                 </div>
               )}
             </div>
@@ -95,7 +95,7 @@ const ExpenseDetail = () => {
 
           {expense.notes && (
             <div className="mt-4">
-              <label className="text-muted">Notes</label>
+              <label className="text-muted">Notas</label>
               <p className="border-top pt-3">{expense.notes}</p>
             </div>
           )}

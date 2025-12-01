@@ -16,31 +16,31 @@ const Login = () => {
       await authService.login(vatNumber, password);
       navigate('/invoices');
     } catch (err) {
-      setError('Invalid credentials');
+      setError('Credenciales incorrectas');
     }
   };
 
   return (
-    <div className="login-container">
+    <div className="login-container mt-3">
       <div className="card">
         <div className="card-body">
-          <h2 className="card-title text-center mb-4">Login</h2>
+          <h2 className="card-title text-center mb-4">Iniciar sesión</h2>
           {error && <div className="alert alert-danger">{error}</div>}
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
-              <label className="form-label">VAT Number</label>
+              <label className="form-label">NIF / CIF</label>
               <input
                 type="text"
                 className="form-control"
                 value={vatNumber}
                 onChange={(e) => setVatNumber(e.target.value.toUpperCase())}
-                placeholder="e.g., B12345678"
+                placeholder="e.j., B12345678"
                 required
               />
-              <small className="text-muted">Enter your VAT number (can include letters)</small>
+              <small className="text-muted">Introduce tu NIF o CIF</small>
             </div>
             <div className="mb-3">
-              <label className="form-label">Password</label>
+              <label className="form-label">Contraseña</label>
               <input
                 type="password"
                 className="form-control"
@@ -54,7 +54,7 @@ const Login = () => {
             </button>
           </form>
           <div className="text-center mt-3">
-            <Link to="/register">Don't have an account? Register</Link>
+            <Link to="/register">¿No tienes una cuenta? Registrarse</Link>
           </div>
         </div>
       </div>

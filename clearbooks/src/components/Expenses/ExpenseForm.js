@@ -92,26 +92,26 @@ const ExpenseForm = () => {
         <div className="col-md-8">
           <div className="card">
             <div className="card-body">
-              <h2 className="card-title mb-4">New Expense</h2>
+              <h2 className="card-title mb-4">Nuevo gasto</h2>
               {error && <div className="alert alert-danger">{error}</div>}
               
               <form onSubmit={handleSubmit}>
                 <div className="mb-3">
-                  <label className="form-label">Name *</label>
+                  <label className="form-label">Nombre *</label>
                   <input
                     type="text"
                     className="form-control"
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    placeholder="e.g., Office Supplies"
+                    placeholder="ej. Material de oficina"
                     required
                   />
                 </div>
 
                 <div className="row">
                   <div className="col-md-6 mb-3">
-                    <label className="form-label">Amount (€) *</label>
+                    <label className="form-label">Total (€) *</label>
                     <input
                       type="number"
                       className="form-control"
@@ -126,7 +126,7 @@ const ExpenseForm = () => {
                   </div>
 
                   <div className="col-md-6 mb-3">
-                    <label className="form-label">Date *</label>
+                    <label className="form-label">Fecha *</label>
                     <input
                       type="date"
                       className="form-control"
@@ -139,7 +139,7 @@ const ExpenseForm = () => {
                 </div>
 
                 <div className="mb-3">
-                  <label className="form-label">Receipt Photo</label>
+                  <label className="form-label">Imagen del ticket o factura</label>
                   <input
                     type="file"
                     className="form-control"
@@ -147,13 +147,13 @@ const ExpenseForm = () => {
                     onChange={handleFileChange}
                   />
                   <small className="text-muted">
-                    Upload a photo of your receipt (max 5MB, image files only)
+                    Sube la imagen del ticket o factura (máximo 5MB, solo archivos de imagen)
                   </small>
                 </div>
 
                 {receiptPreview && (
                   <div className="mb-3">
-                    <label className="form-label">Receipt Preview</label>
+                    <label className="form-label">Vista previa del ticket o factura</label>
                     <div className="position-relative d-inline-block">
                       <img 
                         src={receiptPreview} 
@@ -173,14 +173,14 @@ const ExpenseForm = () => {
                 )}
 
                 <div className="mb-3">
-                  <label className="form-label">Notes</label>
+                  <label className="form-label">Notas</label>
                   <textarea
                     className="form-control"
                     name="notes"
                     value={formData.notes}
                     onChange={handleChange}
                     rows="3"
-                    placeholder="Additional notes about this expense..."
+                    placeholder="Notas adicionales sobre el gasto..."
                   />
                 </div>
 
@@ -191,10 +191,10 @@ const ExpenseForm = () => {
                     onClick={() => navigate('/expenses')}
                     disabled={loading}
                   >
-                    Cancel
+                    Cancelar
                   </button>
                   <button type="submit" className="btn btn-primary" disabled={loading}>
-                    {loading ? 'Creating...' : 'Create Expense'}
+                    {loading ? 'Creando...' : 'Crear gasto'}
                   </button>
                 </div>
               </form>

@@ -110,7 +110,7 @@ const ExpenseEdit = () => {
     }
   };
 
-  if (loading) return <div className="text-center mt-5">Loading...</div>;
+  if (loading) return <div className="text-center mt-5">Cargando...</div>;
 
   return (
     <div className="container mt-4">
@@ -118,12 +118,12 @@ const ExpenseEdit = () => {
         <div className="col-md-8">
           <div className="card">
             <div className="card-body">
-              <h2 className="card-title mb-4">Edit Expense</h2>
+              <h2 className="card-title mb-4">Editar gasto</h2>
               {error && <div className="alert alert-danger">{error}</div>}
               
               <form onSubmit={handleSubmit}>
                 <div className="mb-3">
-                  <label className="form-label">Name *</label>
+                  <label className="form-label">Nombre *</label>
                   <input
                     type="text"
                     className="form-control"
@@ -136,7 +136,7 @@ const ExpenseEdit = () => {
 
                 <div className="row">
                   <div className="col-md-6 mb-3">
-                    <label className="form-label">Amount (€) *</label>
+                    <label className="form-label">Total (€) *</label>
                     <input
                       type="number"
                       className="form-control"
@@ -150,7 +150,7 @@ const ExpenseEdit = () => {
                   </div>
 
                   <div className="col-md-6 mb-3">
-                    <label className="form-label">Date *</label>
+                    <label className="form-label">Fecha *</label>
                     <input
                       type="date"
                       className="form-control"
@@ -163,7 +163,7 @@ const ExpenseEdit = () => {
                 </div>
 
                 <div className="mb-3">
-                  <label className="form-label">Receipt Photo</label>
+                  <label className="form-label">Imagen del ticket o factura</label>
                   <input
                     type="file"
                     className="form-control"
@@ -171,13 +171,13 @@ const ExpenseEdit = () => {
                     onChange={handleFileChange}
                   />
                   <small className="text-muted">
-                    Upload a new photo to replace the existing one (max 5MB)
+                    Suba una nueva imagen para reemplazar la actual (max 5MB)
                   </small>
                 </div>
 
                 {receiptPreview && (
                   <div className="mb-3">
-                    <label className="form-label">Current Receipt</label>
+                    <label className="form-label">Imagen actual</label>
                     <div className="position-relative d-inline-block">
                       <img 
                         src={receiptPreview} 
@@ -197,7 +197,7 @@ const ExpenseEdit = () => {
                 )}
 
                 <div className="mb-3">
-                  <label className="form-label">Notes</label>
+                  <label className="form-label">Notas</label>
                   <textarea
                     className="form-control"
                     name="notes"
@@ -214,10 +214,10 @@ const ExpenseEdit = () => {
                     onClick={() => navigate('/expenses')}
                     disabled={submitting}
                   >
-                    Cancel
+                    Cancelar
                   </button>
                   <button type="submit" className="btn btn-primary" disabled={submitting}>
-                    {submitting ? 'Updating...' : 'Update Expense'}
+                    {submitting ? 'Guardando...' : 'Guardar'}
                   </button>
                 </div>
               </form>

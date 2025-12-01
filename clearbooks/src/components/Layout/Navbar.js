@@ -33,19 +33,19 @@ const Navbar = () => {
             <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="navbar-nav me-auto">
                 <li className="nav-item">
-                  <Link className="nav-link" to="/invoices">Invoices</Link>
+                  <Link className="nav-link" to="/invoices">Facturas</Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/estimates">Estimates</Link>
+                  <Link className="nav-link" to="/estimates">Presupuestos</Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/expenses">Expenses</Link>
+                  <Link className="nav-link" to="/expenses">Gastos</Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/customers">Customers</Link>
+                  <Link className="nav-link" to="/customers">Clientes</Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/timer">Timer</Link>
+                  <Link className="nav-link" to="/timer">Temporizador</Link>
                 </li>
               </ul>
               
@@ -64,14 +64,14 @@ const Navbar = () => {
                     <li>
                       <Link className="dropdown-item" to="/profile">
                         <i className="bi bi-person-circle me-2"></i>
-                        My Profile
+                        Mi perfil
                       </Link>
                     </li>
                     <li><hr className="dropdown-divider" /></li>
                     <li>
                       <button className="dropdown-item" onClick={handleLogout}>
                         <i className="bi bi-box-arrow-right me-2"></i>
-                        Logout
+                        Salir
                       </button>
                     </li>
                   </ul>

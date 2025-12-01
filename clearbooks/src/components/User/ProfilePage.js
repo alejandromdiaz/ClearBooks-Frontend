@@ -78,7 +78,7 @@ const ProfilePage = () => {
         localStorage.setItem('user', JSON.stringify(response.data));
       }
       
-      setSuccess('Profile updated successfully!');
+      setSuccess('Perfil actualizado correctamente');
       
       // Reload page after 1.5 seconds to refresh navbar and all components
       setTimeout(() => {
@@ -98,12 +98,12 @@ const ProfilePage = () => {
     setSuccess('');
 
     if (passwordData.newPassword !== passwordData.confirmPassword) {
-      setError('New passwords do not match');
+      setError('Las nuevas contraseñas no coinciden');
       return;
     }
 
     if (passwordData.newPassword.length < 6) {
-      setError('New password must be at least 6 characters long');
+      setError('La nueva contraseña debe contener al menos 6 caracteres');
       return;
     }
 
@@ -115,7 +115,7 @@ const ProfilePage = () => {
         newPassword: passwordData.newPassword
       });
       
-      setSuccess('Password changed successfully!');
+      setSuccess('Contraseña actualizada correctamente');
       setPasswordData({
         currentPassword: '',
         newPassword: '',
@@ -129,7 +129,7 @@ const ProfilePage = () => {
     }
   };
 
-  if (loading) return <div className="text-center mt-5">Loading...</div>;
+  if (loading) return <div className="text-center mt-5">Cargando...</div>;
 
   return (
     <div className="container mt-4">
@@ -137,7 +137,7 @@ const ProfilePage = () => {
         <div className="col-md-8">
           <div className="card">
             <div className="card-body">
-              <h2 className="card-title mb-4">My Profile</h2>
+              <h2 className="card-title mb-4">Mi perfil</h2>
 
               {/* Tabs */}
               <ul className="nav nav-tabs mb-4">
@@ -146,7 +146,7 @@ const ProfilePage = () => {
                     className={`nav-link ${activeTab === 'profile' ? 'active' : ''}`}
                     onClick={() => setActiveTab('profile')}
                   >
-                    Profile Information
+                    Detalles del usuario
                   </button>
                 </li>
                 <li className="nav-item">
@@ -154,7 +154,7 @@ const ProfilePage = () => {
                     className={`nav-link ${activeTab === 'password' ? 'active' : ''}`}
                     onClick={() => setActiveTab('password')}
                   >
-                    Change Password
+                    Cambiar contraseña
                   </button>
                 </li>
               </ul>
@@ -167,7 +167,7 @@ const ProfilePage = () => {
                 <form onSubmit={handleProfileSubmit}>
                   <div className="row">
                     <div className="col-md-6 mb-3">
-                      <label className="form-label">Name *</label>
+                      <label className="form-label">Nombre *</label>
                       <input
                         type="text"
                         className="form-control"
@@ -178,7 +178,7 @@ const ProfilePage = () => {
                       />
                     </div>
                     <div className="col-md-6 mb-3">
-                      <label className="form-label">Surname *</label>
+                      <label className="form-label">Apellidos *</label>
                       <input
                         type="text"
                         className="form-control"
@@ -191,7 +191,7 @@ const ProfilePage = () => {
                   </div>
 
                   <div className="mb-3">
-                    <label className="form-label">Company Name</label>
+                    <label className="form-label">Nombre de la empresa</label>
                     <input
                       type="text"
                       className="form-control"
@@ -203,7 +203,7 @@ const ProfilePage = () => {
 
                   <div className="row">
                     <div className="col-md-6 mb-3">
-                      <label className="form-label">VAT Number *</label>
+                      <label className="form-label">NIF / CIF *</label>
                       <input
                         type="text"
                         className="form-control"
@@ -213,11 +213,11 @@ const ProfilePage = () => {
                         required
                       />
                       <small className="text-muted">
-                        Warning: Changing your VAT number will change your login credentials
+                        Atención: Al actualizar el NIF o el CIF, las credenciales de acceso cambiarán
                       </small>
                     </div>
                     <div className="col-md-6 mb-3">
-                      <label className="form-label">Email *</label>
+                      <label className="form-label">Correo electrónico *</label>
                       <input
                         type="email"
                         className="form-control"
@@ -230,7 +230,7 @@ const ProfilePage = () => {
                   </div>
 
                   <div className="mb-3">
-                    <label className="form-label">Address *</label>
+                    <label className="form-label">Dirección comercial *</label>
                     <textarea
                       className="form-control"
                       name="address"
@@ -242,7 +242,7 @@ const ProfilePage = () => {
                   </div>
 
                   <div className="mb-3">
-                    <label className="form-label">Phone Number</label>
+                    <label className="form-label">Número de teléfono</label>
                     <input
                       type="tel"
                       className="form-control"
@@ -259,10 +259,10 @@ const ProfilePage = () => {
                       onClick={() => navigate('/invoices')}
                       disabled={updating}
                     >
-                      Cancel
+                      Cancelar
                     </button>
                     <button type="submit" className="btn btn-primary" disabled={updating}>
-                      {updating ? 'Updating...' : 'Update Profile'}
+                      {updating ? 'Guardando...' : 'Actualizar perfil'}
                     </button>
                   </div>
                 </form>
@@ -272,7 +272,7 @@ const ProfilePage = () => {
               {activeTab === 'password' && (
                 <form onSubmit={handlePasswordSubmit}>
                   <div className="mb-3">
-                    <label className="form-label">Current Password *</label>
+                    <label className="form-label">Contraseña actual *</label>
                     <input
                       type="password"
                       className="form-control"
@@ -284,7 +284,7 @@ const ProfilePage = () => {
                   </div>
 
                   <div className="mb-3">
-                    <label className="form-label">New Password *</label>
+                    <label className="form-label">Nueva contraseña *</label>
                     <input
                       type="password"
                       className="form-control"
@@ -295,12 +295,12 @@ const ProfilePage = () => {
                       minLength="6"
                     />
                     <small className="text-muted">
-                      Must be at least 6 characters long
+                      Debe contener al menos 6 caracteres
                     </small>
                   </div>
 
                   <div className="mb-3">
-                    <label className="form-label">Confirm New Password *</label>
+                    <label className="form-label">Confirmar nueva contraseña *</label>
                     <input
                       type="password"
                       className="form-control"
@@ -319,10 +319,10 @@ const ProfilePage = () => {
                       onClick={() => navigate('/invoices')}
                       disabled={updating}
                     >
-                      Cancel
+                      Cancelar
                     </button>
                     <button type="submit" className="btn btn-primary" disabled={updating}>
-                      {updating ? 'Changing...' : 'Change Password'}
+                      {updating ? 'Actualizando...' : 'Cambiar contraseña'}
                     </button>
                   </div>
                 </form>

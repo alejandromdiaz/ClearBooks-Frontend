@@ -29,7 +29,7 @@ const Sidebar = () => {
               style={{ borderRadius: '5px' }}
             >
               <i className="bi bi-file-text me-2"></i>
-              Invoices
+              Facturas
             </Link>
           </li>
           
@@ -40,7 +40,7 @@ const Sidebar = () => {
               style={{ borderRadius: '5px' }}
             >
               <i className="bi bi-file-earmark-text me-2"></i>
-              Estimates
+              Presupuestos
             </Link>
           </li>
           
@@ -51,14 +51,14 @@ const Sidebar = () => {
               style={{ borderRadius: '5px' }}
             >
               <i className="bi bi-people me-2"></i>
-              Customers
+              Clientes
             </Link>
           </li>
         </ul>
 
         <hr className="text-white my-4" />
 
-        <h6 className="text-white-50 mb-3">Quick Actions</h6>
+        <h6 className="text-white-50 mb-3">Acciones rápidas</h6>
         <ul className="nav flex-column">
           <li className="nav-item mb-2">
             <Link 
@@ -67,7 +67,7 @@ const Sidebar = () => {
               style={{ borderRadius: '5px' }}
             >
               <i className="bi bi-plus-circle me-2"></i>
-              New Invoice
+              Nueva factura
             </Link>
           </li>
           
@@ -78,7 +78,7 @@ const Sidebar = () => {
               style={{ borderRadius: '5px' }}
             >
               <i className="bi bi-plus-circle me-2"></i>
-              New Estimate
+              Nuevo presupuesto
             </Link>
           </li>
           
@@ -89,7 +89,7 @@ const Sidebar = () => {
               style={{ borderRadius: '5px' }}
             >
               <i className="bi bi-plus-circle me-2"></i>
-              New Customer
+              Nuevo cliente
             </Link>
           </li>
         </ul>

@@ -44,12 +44,12 @@ const CustomerForm = () => {
         <div className="col-md-6">
           <div className="card">
             <div className="card-body">
-              <h2 className="card-title mb-4">New Customer</h2>
+              <h2 className="card-title mb-4">Nuevo cliente</h2>
               {error && <div className="alert alert-danger">{error}</div>}
               
               <form onSubmit={handleSubmit}>
                 <div className="mb-3">
-                  <label className="form-label">Name *</label>
+                  <label className="form-label">Nombre *</label>
                   <input
                     type="text"
                     className="form-control"
@@ -61,7 +61,7 @@ const CustomerForm = () => {
                 </div>
 
                 <div className="mb-3">
-                  <label className="form-label">VAT Number *</label>
+                  <label className="form-label">NIF / CIF *</label>
                   <input
                     type="text"
                     className="form-control"
@@ -73,7 +73,7 @@ const CustomerForm = () => {
                 </div>
 
                 <div className="mb-3">
-                  <label className="form-label">Phone</label>
+                  <label className="form-label">Teléfono</label>
                   <input
                     type="text"
                     className="form-control"
@@ -84,7 +84,7 @@ const CustomerForm = () => {
                 </div>
 
                 <div className="mb-3">
-                  <label className="form-label">Address</label>
+                  <label className="form-label">Dirección</label>
                   <textarea
                     className="form-control"
                     name="address"
@@ -100,10 +100,10 @@ const CustomerForm = () => {
                     className="btn btn-secondary me-2"
                     onClick={() => navigate('/customers')}
                   >
-                    Cancel
+                    Cancelar
                   </button>
                   <button type="submit" className="btn btn-primary">
-                    Create Customer
+                    Añadir cliente
                   </button>
                 </div>
               </form>

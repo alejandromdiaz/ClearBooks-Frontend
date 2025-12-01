@@ -38,25 +38,25 @@ const CustomerList = () => {
   return (
     <div className="container mt-4">
       <div className="d-flex justify-content-between align-items-center mb-4">
-        <h2>Customers</h2>
+        <h2>Clientes</h2>
         <Link to="/customers/new" className="btn btn-primary">
-          Add New Customer
+          Añadir nuevo cliente
         </Link>
       </div>
 
       {customers.length === 0 ? (
-        <div className="alert alert-info">No customers found. Create your first customer!</div>
+        <div className="alert alert-info">No se han encontrado registros. Añade tu primer cliente.</div>
       ) : (
         <div className="card">
           <div className="card-body">
             <table className="table table-hover">
               <thead>
                 <tr>
-                  <th>Name</th>
-                  <th>VAT Number</th>
-                  <th>Phone</th>
-                  <th>Address</th>
-                  <th>Actions</th>
+                  <th>Nombre</th>
+                  <th>NIF / CIF</th>
+                  <th>Dirección</th>
+                  <th>Teléfono</th>
+                  <th>Acciones</th>
                 </tr>
               </thead>
               <tbody>
@@ -69,15 +69,15 @@ const CustomerList = () => {
                     <td>
                       <Link
                         to={`/customers/edit/${customer.id}`}
-                        className="btn btn-sm btn-warning btn-action"
+                        className="btn btn-sm btn-warning btn-action me-2"
                       >
-                        Edit
+                        Editar
                       </Link>
                       <button
                         onClick={() => handleDelete(customer.id)}
                         className="btn btn-sm btn-danger"
                       >
-                        Delete
+                        Eliminar
                       </button>
                     </td>
                   </tr>

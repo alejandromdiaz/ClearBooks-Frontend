@@ -45,12 +45,12 @@ const Register = () => {
         <div className="col-md-8">
           <div className="card">
             <div className="card-body">
-              <h2 className="card-title text-center mb-4">Register</h2>
+              <h2 className="card-title text-center mb-4">Registro</h2>
               {error && <div className="alert alert-danger">{error}</div>}
               <form onSubmit={handleSubmit}>
                 <div className="row">
                   <div className="col-md-6 mb-3">
-                    <label className="form-label">Name *</label>
+                    <label className="form-label">Nombre *</label>
                     <input
                       type="text"
                       className="form-control"
@@ -61,7 +61,7 @@ const Register = () => {
                     />
                   </div>
                   <div className="col-md-6 mb-3">
-                    <label className="form-label">Surname *</label>
+                    <label className="form-label">Apellidos *</label>
                     <input
                       type="text"
                       className="form-control"
@@ -74,7 +74,7 @@ const Register = () => {
                 </div>
 
                 <div className="mb-3">
-                  <label className="form-label">Company Name (Optional)</label>
+                  <label className="form-label">Nombre de la empresa (Opcional)</label>
                   <input
                     type="text"
                     className="form-control"
@@ -86,20 +86,20 @@ const Register = () => {
 
                 <div className="row">
                   <div className="col-md-6 mb-3">
-                    <label className="form-label">VAT Number *</label>
+                    <label className="form-label">NIF / CIF *</label>
                     <input
                       type="text"
                       className="form-control"
                       name="vatNumber"
                       value={formData.vatNumber}
                       onChange={handleChange}
-                      placeholder="e.g., B12345678"
+                      placeholder="e.j., B12345678"
                       required
                     />
-                    <small className="text-muted">Can include letters and numbers</small>
+                    <small className="text-muted">Puede incluir letras y números</small>
                   </div>
                   <div className="col-md-6 mb-3">
-                    <label className="form-label">Email *</label>
+                    <label className="form-label">Correo electrónico *</label>
                     <input
                       type="email"
                       className="form-control"
@@ -112,7 +112,7 @@ const Register = () => {
                 </div>
 
                 <div className="mb-3">
-                  <label className="form-label">Address *</label>
+                  <label className="form-label">Dirección comercial *</label>
                   <textarea
                     className="form-control"
                     name="address"
@@ -125,7 +125,7 @@ const Register = () => {
 
                 <div className="row">
                   <div className="col-md-6 mb-3">
-                    <label className="form-label">Phone Number</label>
+                    <label className="form-label">Número de teléfono</label>
                     <input
                       type="tel"
                       className="form-control"
@@ -135,7 +135,7 @@ const Register = () => {
                     />
                   </div>
                   <div className="col-md-6 mb-3">
-                    <label className="form-label">Password *</label>
+                    <label className="form-label">Contraseña *</label>
                     <input
                       type="password"
                       className="form-control"
@@ -149,11 +149,11 @@ const Register = () => {
                 </div>
 
                 <button type="submit" className="btn btn-primary w-100">
-                  Register
+                  Registro
                 </button>
               </form>
               <div className="text-center mt-3">
-                <Link to="/login">Already have an account? Login</Link>
+                <Link to="/login">¿Ya tienes una cuenta? Inicia sesión</Link>
               </div>
             </div>
           </div>

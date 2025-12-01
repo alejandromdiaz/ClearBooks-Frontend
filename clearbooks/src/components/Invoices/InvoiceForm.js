@@ -110,13 +110,13 @@ const InvoiceForm = () => {
     <div className="container mt-4">
       <div className="card">
         <div className="card-body">
-          <h2 className="card-title mb-4">New Invoice</h2>
+          <h2 className="card-title mb-4">Nueva factura</h2>
           {error && <div className="alert alert-danger">{error}</div>}
           
           <form onSubmit={handleSubmit}>
             <div className="row">
               <div className="col-md-6 mb-3">
-                <label className="form-label">Customer *</label>
+                <label className="form-label">Cliente *</label>
                 <select
                   className="form-select"
                   name="customerId"
@@ -124,7 +124,7 @@ const InvoiceForm = () => {
                   onChange={handleChange}
                   required
                 >
-                  <option value="">Select a customer</option>
+                  <option value="">Seleccione un cliente</option>
                   {customers.map(customer => (
                     <option key={customer.id} value={customer.id}>
                       {customer.name}
@@ -134,7 +134,7 @@ const InvoiceForm = () => {
               </div>
 
               <div className="col-md-3 mb-3">
-                <label className="form-label">Invoice Date *</label>
+                <label className="form-label">Fecha de emisión *</label>
                 <input
                   type="date"
                   className="form-control"
@@ -146,7 +146,7 @@ const InvoiceForm = () => {
               </div>
 
               <div className="col-md-3 mb-3">
-                <label className="form-label">Due Date</label>
+                <label className="form-label">Fecha de vencimiento</label>
                 <input
                   type="date"
                   className="form-control"
@@ -158,7 +158,7 @@ const InvoiceForm = () => {
             </div>
 
             <div className="mb-3">
-              <label className="form-label">Tax Rate (%)</label>
+              <label className="form-label">IVA (%)</label>
               <input
                 type="number"
                 className="form-control"
@@ -170,11 +170,11 @@ const InvoiceForm = () => {
               />
             </div>
 
-            <h4 className="mt-4 mb-3">Items</h4>
+            <h4 className="mt-4 mb-3">Conceptos</h4>
             {items.map((item, index) => (
               <div key={index} className="row mb-3 border-bottom pb-3">
                 <div className="col-md-4">
-                  <label className="form-label">Description</label>
+                  <label className="form-label">Descripción</label>
                   <input
                     type="text"
                     className="form-control"
@@ -184,7 +184,7 @@ const InvoiceForm = () => {
                   />
                 </div>
                 <div className="col-md-2">
-                  <label className="form-label">Quantity</label>
+                  <label className="form-label">Cantidad</label>
                   <input
                     type="number"
                     className="form-control"
@@ -195,7 +195,7 @@ const InvoiceForm = () => {
                   />
                 </div>
                 <div className="col-md-2">
-                  <label className="form-label">Unit Price (€)</label>
+                  <label className="form-label">Precio (€)</label>
                   <input
                     type="number"
                     className="form-control"
@@ -206,7 +206,7 @@ const InvoiceForm = () => {
                   />
                 </div>
                 <div className="col-md-2">
-                  <label className="form-label">Amount (€)</label>
+                  <label className="form-label">Total (€)</label>
                   <input
                     type="number"
                     className="form-control"
@@ -221,20 +221,20 @@ const InvoiceForm = () => {
                     onClick={() => removeItem(index)}
                     disabled={items.length === 1}
                   >
-                    Remove
+                    Eliminar
                   </button>
                 </div>
               </div>
             ))}
 
             <button type="button" className="btn btn-secondary mb-4" onClick={addItem}>
-              Add Item
+              Añadir concepto
             </button>
 
             <div className="row">
               <div className="col-md-8">
                 <div className="mb-3">
-                  <label className="form-label">Notes</label>
+                  <label className="form-label">Notas</label>
                   <textarea
                     className="form-control"
                     name="notes"
@@ -247,9 +247,9 @@ const InvoiceForm = () => {
               <div className="col-md-4">
                 <div className="card bg-light">
                   <div className="card-body">
-                    <h5>Summary</h5>
+                    <h5>Resumen</h5>
                     <p className="mb-1">Subtotal: €{subtotal.toFixed(2)}</p>
-                    <p className="mb-1">Tax ({formData.taxRate}%): €{taxAmount.toFixed(2)}</p>
+                    <p className="mb-1">IVA ({formData.taxRate}%): €{taxAmount.toFixed(2)}</p>
                     <h5 className="mt-2">Total: €{total.toFixed(2)}</h5>
                   </div>
                 </div>
@@ -262,10 +262,10 @@ const InvoiceForm = () => {
                 className="btn btn-secondary me-2"
                 onClick={() => navigate('/invoices')}
               >
-                Cancel
+                Cancelar
               </button>
               <button type="submit" className="btn btn-primary">
-                Create Invoice
+                Crear factura
               </button>
             </div>
           </form>
