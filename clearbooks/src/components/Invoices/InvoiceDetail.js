@@ -65,7 +65,7 @@ const InvoiceDetail = () => {
             className={`btn ${invoice.isPaid ? 'btn-warning' : 'btn-success'} me-2`}
             onClick={handleTogglePaid}
           >
-            {invoice.isPaid ? 'Marcar como no pagada' : 'Marcar como pendiente'}
+            {invoice.isPaid ? 'Marcar como pendiente' : 'Marcar como pagada'}
           </button>
           <button className="btn btn-success" onClick={handleDownloadPdf}>
             Exportar como PDF
@@ -77,7 +77,7 @@ const InvoiceDetail = () => {
         <div className="invoice-header">
           <div className="row">
             <div className="col-md-6">
-              <h1>INVOICE</h1>
+              <h1>FACTURA</h1>
               <p className="mb-1"><strong>Fecha:</strong> {formatDate(invoice.invoiceDate)}</p>
               <p className="mb-1"><strong>Factura número:</strong> {invoice.invoiceNumber}</p>
               {invoice.dueDate && (

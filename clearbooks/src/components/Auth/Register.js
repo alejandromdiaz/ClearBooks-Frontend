@@ -14,6 +14,7 @@ const Register = () => {
     password: ''
   });
   const [error, setError] = useState('');
+  const [success, setSuccess] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -27,15 +28,44 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
+    setSuccess(false);
+
+    // --- FIX START: Clean the formData to remove empty strings ---
+    const payload = Object.keys(formData).reduce((acc, key) => {
+        const value = formData[key];
+        // Only include fields that are not null, not undefined, and not an empty string
+        if (value !== null && value !== undefined && value !== '') {
+            acc[key] = value;
+        }
+        return acc;
+    }, {});
+    // --- FIX END ---
+    
+    // NOTE: This ensures that mandatory fields (like vatNumber, email, password) 
+    // are present because they are marked 'required' in the form, 
+    // preventing submission if they are empty.
 
     try {
-      const response = await authService.register(formData);
-      if (response.data.token) {
-        localStorage.setItem('user', JSON.stringify(response.data));
-        navigate('/invoices');
+      // Use the cleaned payload
+      const data = await authService.register(payload); 
+      
+      if (data.token) {
+        // Since we are moving towards a persistent database, local storage is only used 
+        // as a temporary cache and should ideally be replaced with state management 
+        // or cookies/session storage for real applications.
+        localStorage.setItem('user', JSON.stringify(data)); 
+        setSuccess(true);
+        navigate('/invoices'); // redirect on success
+      } else {
+        // If the backend returns data but no token, something is still unexpected
+        setError('Registration succeeded but no token returned');
       }
     } catch (err) {
-      setError(err.response?.data || 'Registration failed');
+      // The error is now coming from the backend's validation process.
+      // The 'err.error' should contain the specific validation failure message.
+      const errorMessage = err.message || err.error || 'Registration failed due to invalid data.';
+      setError(errorMessage);
+      console.error("Backend Registration Error:", err);
     }
   };
 
@@ -43,12 +73,17 @@ const Register = () => {
     <div className="container mt-4">
       <div className="row justify-content-center">
         <div className="col-md-8">
-          <div className="card">
-            <div className="card-body">
-              <h2 className="card-title text-center mb-4">Registro</h2>
-              {error && <div className="alert alert-danger">{error}</div>}
+          <div className="card shadow-lg border-0 rounded-lg">
+            <div className="card-body p-5">
+              <h2 className="card-title text-center mb-5 text-primary fw-bold">Registro</h2>
+
+              {/* Error/Success Messages */}
+              {error && <div className="alert alert-danger text-center">{error}</div>}
+              {success && <div className="alert alert-success text-center">Registro exitoso! Redirigiendo...</div>}
+
               <form onSubmit={handleSubmit}>
                 <div className="row">
+                  {/* Nombre */}
                   <div className="col-md-6 mb-3">
                     <label className="form-label">Nombre *</label>
                     <input
@@ -60,6 +95,7 @@ const Register = () => {
                       required
                     />
                   </div>
+                  {/* Apellidos */}
                   <div className="col-md-6 mb-3">
                     <label className="form-label">Apellidos *</label>
                     <input
@@ -73,6 +109,7 @@ const Register = () => {
                   </div>
                 </div>
 
+                {/* Nombre de la empresa */}
                 <div className="mb-3">
                   <label className="form-label">Nombre de la empresa (Opcional)</label>
                   <input
@@ -85,6 +122,7 @@ const Register = () => {
                 </div>
 
                 <div className="row">
+                  {/* NIF / CIF */}
                   <div className="col-md-6 mb-3">
                     <label className="form-label">NIF / CIF *</label>
                     <input
@@ -98,6 +136,7 @@ const Register = () => {
                     />
                     <small className="text-muted">Puede incluir letras y números</small>
                   </div>
+                  {/* Correo electrónico */}
                   <div className="col-md-6 mb-3">
                     <label className="form-label">Correo electrónico *</label>
                     <input
@@ -111,6 +150,7 @@ const Register = () => {
                   </div>
                 </div>
 
+                {/* Dirección comercial */}
                 <div className="mb-3">
                   <label className="form-label">Dirección comercial *</label>
                   <textarea
@@ -124,6 +164,7 @@ const Register = () => {
                 </div>
 
                 <div className="row">
+                  {/* Número de teléfono */}
                   <div className="col-md-6 mb-3">
                     <label className="form-label">Número de teléfono</label>
                     <input
@@ -134,6 +175,7 @@ const Register = () => {
                       onChange={handleChange}
                     />
                   </div>
+                  {/* Contraseña */}
                   <div className="col-md-6 mb-3">
                     <label className="form-label">Contraseña *</label>
                     <input
@@ -148,12 +190,13 @@ const Register = () => {
                   </div>
                 </div>
 
-                <button type="submit" className="btn btn-primary w-100">
+                <button type="submit" className="btn btn-primary w-100 mt-4">
                   Registro
                 </button>
               </form>
+
               <div className="text-center mt-3">
-                <Link to="/login">¿Ya tienes una cuenta? Inicia sesión</Link>
+                <Link to="/login" className="text-decoration-none">¿Ya tienes una cuenta? Inicia sesión</Link>
               </div>
             </div>
           </div>
