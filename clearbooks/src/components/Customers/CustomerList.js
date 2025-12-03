@@ -54,8 +54,8 @@ const CustomerList = () => {
                 <tr>
                   <th>Nombre</th>
                   <th>NIF / CIF</th>
-                  <th>Dirección</th>
                   <th>Teléfono</th>
+                  <th>Dirección</th>
                   <th>Acciones</th>
                 </tr>
               </thead>

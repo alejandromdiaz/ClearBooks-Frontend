@@ -50,7 +50,7 @@ const Login = () => {
               />
             </div>
             <button type="submit" className="btn btn-primary w-100">
-              Login
+              Iniciar sesión
             </button>
           </form>
           <div className="text-center mt-3">
